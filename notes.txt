@@ -1,0 +1,52 @@
+ASSOCIATING TABELS WITH FOREIGN KEYS.
+    using primary and foregn keys to create relations in a relational database.
+relation data from one table to data from another table using foreign keys.
+
+RELATING TABLES WITH FOREIGN KEYS.
+ a representation of the one-to-many relationship is where one employee only has one manager 
+ while one manager has several employees.
+ we used a foreign key in the employees table to show the relation between an employee and a manager.
+ with the one-to-many relationship always use the following rule
+
+     use a foreign key on the table of the record that belongs to a record in the other table.
+     take for instance we want to create a blogging domain, this domain will ahve authors who write blogs 
+     an blogs will have authors 
+     an author can have several posts.
+     therfore for these tables we will have an author table with id, name and email columns
+     while the posts table will have an id, title of the post or blog and a foreign key column with the name author_id.
+
+Code ALONG relating CATS TO OWNERS.
+we are creating an app that helps a veterinaty office amnage the pets it sees as patients and the owners of those pets.
+lets say this vet is very particular and specializes in cats.
+the databse will ahve two tables, cat table and owner table.
+we need to relate or connect these two tables such that a given cat is associated to its owner and a given owner is associated to the cat or cats it owns.
+
+create a database by running the following command in the terminal
+    sqlite3 pets_database.db
+
+    step 2 
+    Create a table with columns id, name, age and breed.
+    
+    step 3
+    Create the owners table.
+
+    step 4 
+    Add foreign key to the cats table.
+        ALTER TABLE cats ADD COLUMN owner_id INTEGER;
+        check if the foreighn key has been added to the cats table using the following command 
+        .schema
+    
+    we can now add the owners to the owners table and asociate each cat with ites owner ,and assigning the 
+    that ownes id to the cats owner_id column.
+
+    step 5
+    Associateing CATS TO Owners.
+        create a new row. in the owners table.
+             INSERT INTO owner(name) VALUES ("caroline");
+     now lets say that caroline is the owner of boht Maru and Hana.
+     this is done using the following statementst 
+            UPDATE cats SET owner_id = 1 WHERE name = "Maru";
+            UPDATE cats SET owner_id = 1 WHERE name = "Hana";
+
+Which table gets a foreign Key Column?
+in one to many relation the many column recieves the foreign key.
